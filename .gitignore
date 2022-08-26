@@ -1,0 +1,2 @@
+# ignore uploading node_modules folder to github
+/node_modules
