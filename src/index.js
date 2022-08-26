@@ -26,7 +26,6 @@ function startGame() {
         interval = setInterval(() => surfer.moveLeft(), 1);
       }
       if (event.key === "ArrowRight") {
-        console.log("moveRight");
         interval = setInterval(() => surfer.moveRight(), 1);
       }
     }
@@ -37,11 +36,12 @@ function startGame() {
     both = 0;
   });
 
-  const numTrash = 3;
+  // const numTrash = 3; // max num of trash at once in game
+  const numTrash = 10; // max num of trash at once in game
   let trashInterval = 1000;
   for (let i = 0; i < numTrash; i++) {
     setTimeout(() => {
-      const randomTrash = new Trash(); // create random trash object with random x position
+      const randomTrash = new Trash(i); // create 1 random trash object with random x position
       root.appendChild(randomTrash.img);
     }, (trashInterval += 1000)); // stagger each appearance by 1 second
   }
